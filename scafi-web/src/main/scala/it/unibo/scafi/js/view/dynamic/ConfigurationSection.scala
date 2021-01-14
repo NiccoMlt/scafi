@@ -2,9 +2,9 @@ package it.unibo.scafi.js.view.dynamic
 
 import it.unibo.scafi.js.controller.AggregateSystemSupport
 import it.unibo.scafi.js.controller.local._
-import it.unibo.scafi.js.facade.simplebar.SimpleBar
 import org.scalajs.dom.html.{Button, Div, Select}
 import org.scalajs.dom.raw.MouseEvent
+import typings.simplebar.mod.{^ => SimpleBar}
 
 import scala.scalajs.js
 import scala.util.{Failure, Success, Try}
@@ -16,7 +16,7 @@ class ConfigurationSection(configuration: Div, support: AggregateSystemSupport[_
 
   val container: Div = div(cls := "pt-1, pb-1").render
   configuration.appendChild(container)
-  SimpleBar.wrap(configuration)
+  new SimpleBar(configuration)
   val selectMode: Select = select(cls := "form-control", option(Random.toString), option(Grid.toString)).render
   val loadButton: Button = button(cls := "btn btn-primary btn-sm ml-1 mr-1", `type` := "button", "load config").render
   val mainDiv: Div = div(cls := "input-group input-group-sm pt-1", selectMode, loadButton).render

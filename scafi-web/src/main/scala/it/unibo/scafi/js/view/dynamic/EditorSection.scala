@@ -3,11 +3,11 @@ package it.unibo.scafi.js.view.dynamic
 import it.unibo.scafi.js.controller.scripting.Script
 import it.unibo.scafi.js.controller.scripting.Script.{Javascript, Scala}
 import it.unibo.scafi.js.facade.codemirror.{CodeMirror, Editor, EditorConfiguration}
-import it.unibo.scafi.js.facade.simplebar.SimpleBarConfig.ForceX
-import it.unibo.scafi.js.facade.simplebar.{SimpleBar, SimpleBarConfig}
 import it.unibo.scafi.js.view.dynamic.EditorSection.Mode
 import org.scalajs.dom.html
 import org.scalajs.dom.html.TextArea
+import typings.simplebar.mod.{Options, ^ => SimpleBar}
+import typings.simplebar.simplebarStrings.{x => ForceX}
 
 trait EditorSection {
   def setCode(code : String, mode : Mode)
@@ -39,7 +39,9 @@ object EditorSection {
     import scalatags.JsDom.all._
     var mode: Mode = JavascriptMode
     private lazy val editor : Editor = CodeMirror.fromTextArea(textArea, new EditorConfiguration(mode.codeMirrorMode, "native", true))
-    new SimpleBar(textArea, new SimpleBarConfig(forceVisible = ForceX)).recalculate()
+    val simpleBarConfig: Options = Options()
+    simpleBarConfig.forceVisible = ForceX
+    new SimpleBar(textArea, simpleBarConfig).recalculate()
     private val optionInSelect = codeExample.keys.map(key => option(value := key, key).render).toList
 
     optionInSelect.headOption.foreach( option => {

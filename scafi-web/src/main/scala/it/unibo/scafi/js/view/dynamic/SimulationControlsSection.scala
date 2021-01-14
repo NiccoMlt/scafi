@@ -1,14 +1,10 @@
 package it.unibo.scafi.js.view.dynamic
 
-import it.unibo.scafi.js.controller.local.SimulationExecution.{Daemon, TickBased}
 import it.unibo.scafi.js.controller.local.{SimulationExecution, SimulationExecutionPlatform}
+import it.unibo.scafi.js.controller.local.SimulationExecution.{Daemon, TickBased}
 import it.unibo.scafi.js.controller.scripting.Script
 import it.unibo.scafi.js.controller.scripting.Script.ScaFi
-import it.unibo.scafi.js.facade.codemirror.Editor
-import it.unibo.scafi.js.facade.simplebar.SimpleBarConfig.{ForceX, IsVisible}
-import it.unibo.scafi.js.facade.simplebar.{SimpleBar, SimpleBarConfig}
 import org.scalajs.dom.html.{Div, Input, Label}
-import org.scalajs.dom.raw.HTMLElement
 import scalatags.JsDom.all._
 
 import scala.util.{Failure, Success}

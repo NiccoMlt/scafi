@@ -14,6 +14,7 @@ import scala.util.Try
 import org.scalajs.dom
 import dom.ext.Ajax
 import org.scalajs.dom.document
+import org.scalajs.dom.raw.Location
 
 /**
   * the execution platform of a local simulation in web browser.
@@ -28,7 +29,7 @@ trait SimulationExecutionPlatform extends ExecutionPlatform[SpatialSimulation#Sp
     .Implicits
     .global
 
-  val location = document.location
+  val location: Location = document.location
   val server = s"${location.protocol}//${location.host}"
   val url = s"$server/code"
 
@@ -62,7 +63,7 @@ trait SimulationExecutionPlatform extends ExecutionPlatform[SpatialSimulation#Sp
   }
   private def sideEffectExecution(program : js.Function1[CONTEXT, EXPORT]) : TickBased = {
     val execution : (Int => Unit) = batchSize => {
-      //TODO FIX (it'isnt easy...)
+      //TODO FIX (it isn't easy...)
       val exports = (0 until batchSize).map(_ => backend.exec(program))
       sideEffectsStream.onNext(ExportProduced(exports))
     }

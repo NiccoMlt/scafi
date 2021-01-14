@@ -1,11 +1,11 @@
 package it.unibo.scafi.js.view.dynamic
 
 import it.unibo.scafi.js.controller.local.{SimulationSupport, SupportConfiguration}
-import it.unibo.scafi.js.facade.simplebar.SimpleBar
 import it.unibo.scafi.js.view.HtmlRenderable
 import it.unibo.scafi.js.view.dynamic.graph.PhaserGraphSection.ForceRepaint
 import org.scalajs.dom.html.Div
 import scalatags.JsDom.all._
+import typings.simplebar.mod.{^ => SimpleBar}
 
 import scala.scalajs.js
 
