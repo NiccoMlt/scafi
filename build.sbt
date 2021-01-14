@@ -5,7 +5,7 @@ resolvers += Resolver.sonatypeRepo("snapshots")
 resolvers += Resolver.typesafeRepo("releases")
 
 // Constants
-val scalaVersionsForCrossCompilation = Seq(/*"2.11.12",*/ "2.12.2", "2.13.1") //drop support for 2.11?
+val scalaVersionsForCrossCompilation = Seq(/*"2.11.12",*/ "2.12.12", "2.13.1") //drop support for 2.11?
 val akkaVersion = "2.5.32" // NOTE: Akka 2.4.0 REQUIRES Java 8! TODO check if it create conflicts
 val scalaTestVersion = "3.1.1"
 // Managed dependencies
@@ -277,7 +277,7 @@ lazy val `scafi-web` = project
       "@types/bootstrap" -> "4.5.1",
       "phaser" -> "3.24.1",
       // phaser already bundles typings
-      "simplebar" -> "5.3.0",
+      "simplebar" -> "6.0.0-beta.3",
       "@types/simplebar" -> "5.1.1",
       "shepherd.js" -> "8.1.0"
       // shepherd.js already bundles typings
