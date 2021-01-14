@@ -1,5 +1,9 @@
 logLevel := Level.Warn
 
+resolvers += Resolver.bintrayRepo("oyvindberg", "converter")
+
+addSbtPlugin("org.scalablytyped.converter" % "sbt-converter" % "1.0.0-beta29.1")
+
 // Create Eclipse project definitions
 addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "5.2.4")
 

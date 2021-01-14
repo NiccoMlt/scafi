@@ -252,7 +252,7 @@ lazy val `demos-new` = project
     compileScalastyle := {}
   )
 lazy val `scafi-web` = project
-  .enablePlugins(ScalaJSBundlerPlugin)
+  .enablePlugins(ScalaJSBundlerPlugin, ScalablyTypedConverterPlugin)
   .dependsOn(commonsCross.js, coreCross.js, simulatorCross.js)
   .settings(
     name := "scafi-web",
@@ -270,10 +270,17 @@ lazy val `scafi-web` = project
     webpackBundlingMode := BundlingMode.LibraryAndApplication(), // https://scalacenter.github.io/scalajs-bundler/cookbook.html#several-entry-points
     npmDependencies in Compile ++= Seq(
       "codemirror" -> "5.32.0",
+      "@types/codemirror" -> "0.0.106",
       "jquery" -> "3.5.1",
+      "@types/jquery" -> "3.5.5",
       "bootstrap" -> "4.5.2",
+      "@types/bootstrap" -> "4.5.1",
       "phaser" -> "3.24.1",
-      "simplebar" -> "6.0.0-beta.3"
+      // phaser already bundles typings
+      "simplebar" -> "5.3.0",
+      "@types/simplebar" -> "5.1.1",
+      "shepherd.js" -> "8.1.0"
+      // shepherd.js already bundles typings
     ),
     //webpack dependencies
     npmDevDependencies in Compile ++= Seq(
